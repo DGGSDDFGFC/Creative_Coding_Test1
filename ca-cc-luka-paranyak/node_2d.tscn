@@ -6,8 +6,22 @@
 script = ExtResource("1_wtcfe")
 
 [node name="Button" type="Button" parent="." unique_id=1210523016]
-offset_left = 315.0
-offset_top = 154.0
-offset_right = 430.0
-offset_bottom = 177.0
+offset_left = 406.0
+offset_top = 41.0
+offset_right = 521.0
+offset_bottom = 72.0
 text = "click me"
+
+[node name="Label_sad" type="Label" parent="." unique_id=280972088]
+offset_left = 43.0
+offset_top = 26.0
+offset_right = 83.0
+offset_bottom = 49.0
+text = "sad: "
+
+[node name="Label_happy" type="Label" parent="." unique_id=535204260]
+offset_left = 40.0
+offset_top = 67.0
+offset_right = 80.0
+offset_bottom = 90.0
+text = "happy: "
