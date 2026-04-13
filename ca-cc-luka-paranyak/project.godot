@@ -15,6 +15,10 @@ run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+counting="*uid://bm32vfx813t6c"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

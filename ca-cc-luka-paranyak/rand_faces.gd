@@ -1,42 +1,28 @@
 extends Node2D
 
-
+var draw_face = preload("res://face.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	$Label_happy.text = "Happy: " +str(counting.happy_count)
+	$Label_sad.text = "Sad: " + str(counting.sad_count)
 	pass # Replace with function body.
 
-
+var happy_count = 0
+var sad_count = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Label_happy.text = "Happy: " +str(counting.happy_count)
+	$Label_sad.text = "Sad: " + str(counting.sad_count)
 	pass
-	
-func _draw() -> void:
-	draw_face()
-	pass
-	
-func draw_face():
-	var posx = randf_range(0, 1000)
-	var posy = randf_range(0, 500)
-	var radius = randi_range(20, 150)
-	var eyes = randi_range(2, 6)
-	var col = Color.from_hsv(randf(), 1, 1)
-	var happy = randi_range(1, 2) # 1 is happy 2 is sad
-	draw_circle(Vector2(posx, posy), radius, col, false)
-	draw_circle(Vector2(posx, posy), 3, col, false)
-	
-	for i in range(2,eyes+2):
-		var x = posx-radius+(i-1)*2*radius/(eyes+1)
-		print(i)
-		draw_circle(Vector2(x,posy-5-radius/5),3,col, false)
-	
+
+
+func _on_button_pressed():
+	var faces = randi_range(1, 10)
+	var posx = randi_range(100, 800)
+	var posy = randi_range(100, 400)
+	for i in range(faces):
+		add_child(draw_face.instantiate())
 		
-	if happy == 1:
-		draw_line(Vector2(posx-radius/2, posy+radius/3), Vector2(posx+radius/2, posy+radius/3), col)
-		draw_line(Vector2(posx-radius/2, posy+radius/3), Vector2(posx-radius, posy-radius/3), col)
-		draw_line(Vector2(posx+radius/2, posy+radius/3), Vector2(posx+radius, posy-radius/3), col)
-	else:
-		draw_line(Vector2(posx-radius/2, posy+radius/3), Vector2(posx+radius/2, posy+radius/3), col)
-		draw_line(Vector2(posx-radius/2, posy+radius/3), Vector2(posx-radius, posy+radius/1.5), col)
-		draw_line(Vector2(posx+radius/2, posy+radius/3), Vector2(posx+radius, posy+radius/1.5), col)
+	$Button.position = Vector2(posx, posy) #funny thing I decised to add
 	pass
+	
